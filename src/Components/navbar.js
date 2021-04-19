@@ -1,15 +1,22 @@
+import { AppBar, Typography, Toolbar, IconButton } from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
+
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Navbar from "./components/Navbar";
 
 
-function App(){
-    return (
-   <div className="App">
-       <Navbar></Navbar>
-       <h1>Welcome to My Live Score App</h1>
-   </div>
+
+
+
+const Navbar=()=>{
+    return(
+        <AppBar position="static">
+        <Toolbar>
+           <IconButton color="inherit">
+               <MenuIcon/>
+           </IconButton>
+            <Typography variant="h6">Live Score</Typography>
+        </Toolbar>
+        </AppBar>
     );
-}
-export default App;
+};
+export default Navbar;

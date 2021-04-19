@@ -1,23 +1,24 @@
 import logo from './logo.svg';
+import React, { useEffect } from "react";
 import './App.css';
-
+import { Button } from '@material-ui/core';
+import Navbar from "./Components/Navbar";
+import MyCard from './Components/MyCard';
+import {getMatches} from './API/Api';
 function App() {
+
+  useEffect(() => {
+    getMatches()
+      .then((data) => console.log("DATA",data))
+      .catch();
+    }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar></Navbar>
+      <MyCard></MyCard>
+      <h1>Welcome to my Live Score App</h1>
+      
     </div>
   );
 }
