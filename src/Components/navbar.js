@@ -1,22 +1,39 @@
-import { AppBar, Typography, Toolbar, IconButton } from "@material-ui/core";
+import React from "react";
+import AppBar from "@material-ui/core/AppBar";
+import {
+  Button,
+  IconButton,
+  makeStyles,
+  Toolbar,
+  Typography,
+} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
-import React from "react";
+const useStyle = makeStyles((theme) => {
+  console.log("STYLE", theme);
+});
 
+const Navbar = () => {
+  const classes = useStyle();
 
-
-
-
-const Navbar=()=>{
-    return(
-        <AppBar position="static">
+  return (
+    <div>
+      <AppBar color="primary" position="static" style={{ flexFlow: 1 }}>
         <Toolbar>
-           <IconButton color="inherit">
-               <MenuIcon/>
-           </IconButton>
-            <Typography variant="h6">Live Score</Typography>
+          <IconButton edge="start" color="inherit">
+            <MenuIcon />
+          </IconButton>
+
+          <Typography variant="h6">Live Score </Typography>
+
+          <span style={{ flexGrow: 1 }}></span>
+
+          <Button color="inherit">Login</Button>
         </Toolbar>
-        </AppBar>
-    );
+      </AppBar>
+    </div>
+  );
 };
+
+
 export default Navbar;
